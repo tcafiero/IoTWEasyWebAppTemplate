@@ -1,7 +1,7 @@
 # IoThingsWare App Template
-## svelte app
+## The template
 
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/tcafiero/IoTWEasyWebAppTemplate.
+This is the IoThingsWare project template for easy building the **PWA Web Application**. It lives at https://github.com/tcafiero/IoTWEasyWebAppTemplate.
 
 To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
 
