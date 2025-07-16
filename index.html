@@ -61,14 +61,24 @@
 					<h3>Text</h3>
 					<div style="heigth: 700px;">
 						<p>
-							Le donne, i cavalier, l'arme, gli amori </br>
-							le cortesie, l'audaci imprese io canto
+							Add HTML elements dynamically using JavaScript
 						</p>
 						<ul>
-							<li>List item one</li>
-							<li>List item two</li>
-							<li>List item three</li>
+							<div id="innerdiv"></div>
 						</ul>
+						<button id="mybutton">
+							click me
+						</button>
+    <script>
+	var i = 1;
+        document.getElementById("mybutton").
+            addEventListener("click", function () {
+         document.getElementById("innerdiv").
+            innerHTML += `<li>List item ${i}</li>`;
+			i++;
+        });
+    </script>
+						
 					</div>
 				</div>
 				
