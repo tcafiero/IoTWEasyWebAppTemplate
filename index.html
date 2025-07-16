@@ -33,9 +33,57 @@
 		<script src="assets/js/lib/mqttws31.js" type="text/javascript"></script>
 		<script src="assets/js/lib/plotly.min.js"></script>
 		<script src="pwabuilder-sw-register.js"></script>
-		<script>
-			
-		</script>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	</head>
+	<body>
+		<!-- App Header -->
+		<div class="appHeader">
+			<div class="pageTitle">
+				<img src="assets/img/IoThingsWareWide.png" alt="IoThingsWare" class="logo">
+			</div>
+		</div>
+		<!-- * App Header -->		
+		<div style="heigth: 800px;" id="appCapsule">
+			<section id="MenuSection" class="visible">
+				<div  id="accordion">
+					<h3>Counter</h3>
+					<div style="heigth: 700px;">
+							<input type="text" id="fname" value = 0 /><br>
+					</div>
+					<h3>Graph</h3>
+					<div style="heigth: 700px;">
+							<!-- <div style="width: 800px;"><canvas id="myChart"></canvas></div>	-->
+							<canvas id="myChart"></canvas>
+					</div>
+					<h3>Text</h3>
+					<div style="heigth: 700px;">
+						<p>
+							Le donne, i cavalier, l'arme, gli amori </br>
+							le cortesie, l'audaci imprese io canto
+						</p>
+						<ul>
+							<li>List item one</li>
+							<li>List item two</li>
+							<li>List item three</li>
+						</ul>
+					</div>
+				</div>
+				
+			</section>
+		</div>
+		
+		
+		<!-- app footer -->
+		<div class="appBottomMenu" class="appBottomMenu">
+			<div class="appFooter">
+				Copyright © IoThingsWare 2025. All Rights Reserved.
+			</div>
+			<div class="appFooter">
+				www.iothingsware.com - Email: info@iothingsware.com
+			</div>
+		</div>
+		<!-- * app footer -->		
+		
 		<script>
 			async function install() {
 				if (deferredPrompt) {
@@ -54,78 +102,41 @@
 					}); 
 				}
 			}
+			$( "#accordion" ).accordion();
+			$( "#accordion" ).accordion( "option", "heightStyle", "fill" );			
+			$( "#accordion" ).on( "accordionactivate", function( event, ui ) {
+				//alert('ehi');			
+			});	
+					
+			const ctx = document.getElementById('myChart');
 			
-			$( function() {
-				$( "#accordion" ).accordion();
-			} );
+			let barChart = new Chart(ctx, {
+				type: 'bar',
+				data: {
+					labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+					datasets: [{
+						label: '# of Votes',
+						data: [12, 19, 3, 5, 2, 3],
+						borderWidth: 1
+					}]
+				},
+				options: {
+					scales: {
+						y: {
+							beginAtZero: true
+						}
+					}
+				}
+			});			
 			
 			function myFunction() {
 				//alert('Hello');
 				$( "#fname" ).val(Number($( "#fname" ).val()) + 1);
+				barChart.data.datasets[0].data[0] = Number($( "#fname" ).val());
+				barChart.update();
 			}
 			setInterval(myFunction, 1000);
 			
-			
-		</script>
-	</head>
-	<body>
-		<!-- App Header -->
-		<div class="appHeader">
-			<div class="pageTitle">
-				<img src="assets/img/IoThingsWareWide.png" alt="IoThingsWare" class="logo">
-			</div>
-		</div>
-		<!-- * App Header -->		
-<div id="appCapsule">
-	<section id="MenuSection" class="visible">
-	<div id="accordion">
-			<h3>Section 1</h3>
-			<div>
-				<p>
-					Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-					ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-					amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-					odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-				</p>
-				<input type="text" id="fname" value = 0 /><br>
-			</div>
-			<h3>Section 2</h3>
-			<div>
-				<p>
-					Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-					purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-					velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-					suscipit faucibus urna.
-				</p>
-			</div>
-			<h3>Section 3</h3>
-			<div>
-				<p>
-					Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
-					Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
-					ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
-					lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
-				</p>
-				<ul>
-					<li>List item one</li>
-					<li>List item two</li>
-					<li>List item three</li>
-				</ul>
-			</div>
-			</div>
-	</section>
-</div>
-		<!-- app footer -->
-		<div class="appBottomMenu" class="appBottomMenu">
-			<div class="appFooter">
-				Copyright © IoThingsWare 2025. All Rights Reserved.
-			</div>
-			<div class="appFooter">
-				www.iothingsware.com - Email: info@iothingsware.com
-			</div>
-		</div>
-		<!-- * app footer -->		
-		
-		
+		</script>		
 	</body>
 </html>	

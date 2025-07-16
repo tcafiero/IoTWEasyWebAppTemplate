@@ -6,7 +6,7 @@ This is the IoThingsWare project template for easy building the **PWA Web Applic
 To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
 
 ```bash
-npx degit tcafiero/IoTWEasyWebAppTemplate IoTW-app
+npx degit https://github.com/tcafiero/IoTWEasyWebAppTemplate IoTW-app
 cd IoTW-app
 ```
 
