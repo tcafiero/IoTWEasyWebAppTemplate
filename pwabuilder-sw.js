@@ -21,7 +21,10 @@ const FILES_TO_CACHE = [
 '/assets/js/lib/puck.js',
 '/assets/js/lib/luxon-1.11.4.js',
 '/assets/js/lib/bootstrap.min.js',
-'/assets/js/lib/jquery-3.4.1.min.js',
+'/assets/js/lib/jquery-3.7.1.min.js',
+'/assets/js/lib/jquery-ui.min.js',
+'/assets/css/jquery-ui.css',
+'/assets/js/lib/chart.umd.min.js',
 '/assets/js/lib/popper.min.js',
 '/assets/js/plugins/owl-carousel/owl.carousel.min.js'
 //'/build/bundle.css',
